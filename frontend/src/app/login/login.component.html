@@ -1,0 +1,28 @@
+<div [hidden]="authenticated">
+    <p>Login successful</p>
+</div>
+<div [hidden]="!authenticated">
+	<p>Please log in</p>
+</div>
+
+<form [formGroup]="formGroup" (ngSubmit)="login()" class="form">
+  
+    <mat-form-field class="full-width">
+      <mat-label>Login</mat-label>
+      <input matInput maxlength="64" formControlName="username">
+      <!-- placeholder="Ex. Pizza" value="Sushi"> -->
+    </mat-form-field>
+  
+    <mat-form-field class="full-width">
+        <mat-label>Hasło</mat-label>
+        <input matInput maxlength="64" formControlName="password" [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+    </mat-form-field>
+    
+    <div class="form-element">
+      <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid">Wyślij</button>
+    </div>
+  
+  </form>

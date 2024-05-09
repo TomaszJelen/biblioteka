@@ -1,0 +1,84 @@
+<p>borrow-table works!</p>
+
+<div class="example-container mat-elevation-z8">
+    @if (isLoadingResults) {
+      <div class="example-loading-shade">
+        @if (isLoadingResults) {
+          <mat-spinner></mat-spinner>
+        }
+      </div>
+    }
+  
+    <div class="example-table-container">
+  
+      <table mat-table [dataSource]="data" class="example-table"
+             matSort matSortActive="id" matSortDisableClear matSortDirection="asc">
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>ID</th>
+          <td mat-cell *matCellDef="let row">{{row.id}}</td>
+        </ng-container>
+  
+        <!-- Czytelnik Column -->
+        <ng-container matColumnDef="czytelnik">
+          <th mat-header-cell *matHeaderCellDef>Czytelnik</th>
+          <td mat-cell *matCellDef="let row">{{row.czytelnik.imie}} {{row.czytelnik.nazwisko}}</td>
+        </ng-container>
+  
+        <!-- Ksiazka Column -->
+        <ng-container matColumnDef="ksiazka">
+            <th mat-header-cell *matHeaderCellDef>Ksiazka</th>
+            <td mat-cell *matCellDef="let row">{{row.ksiazka.nazwa}}</td>
+        </ng-container>
+
+        <!-- FromDate Column -->
+        <ng-container matColumnDef="fromDate">
+            <th mat-header-cell *matHeaderCellDef>Data od</th>
+            <td mat-cell *matCellDef="let row">{{row.fromDate | date: 'yyyy-MM-dd HH:mm'}}</td>
+        </ng-container>
+
+        <!-- ToDate Column -->
+        <ng-container matColumnDef="toDate">
+            <th mat-header-cell *matHeaderCellDef>Data do</th>
+            <td mat-cell *matCellDef="let row">{{row.toDate | date: 'yyyy-MM-dd'}}</td>
+        </ng-container>
+
+        <!-- ReturnDate Column -->
+        <ng-container matColumnDef="returnDate">
+            <th mat-header-cell *matHeaderCellDef>Data oddania</th>
+            <td mat-cell *matCellDef="let row">{{row.returnDate | date: 'yyyy-MM-dd HH:mm'}}</td>
+        </ng-container>
+
+        <!-- Button Column -->
+        <ng-container matColumnDef="execute">
+          <th mat-header-cell *matHeaderCellDef>Obsłuż</th>
+          <td mat-cell *matCellDef="let row">
+            <button mat-icon-button matTooltip="Oddanie książki"  [disabled]="row.returnDate != null" (click)="finishRow(row)">
+              <mat-icon>done</mat-icon>        
+            </button>
+            <button mat-icon-button matTooltip="Przedłużenie wypożyczenia" [disabled]="row.returnDate != null" (click)="prolongRow(row)">
+              <mat-icon>keyboard_double_arrow_right</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <!-- Button Column -->
+        <ng-container matColumnDef="edytuj">
+          <th mat-header-cell *matHeaderCellDef>Edytuj</th>
+          <td mat-cell *matCellDef="let row">
+            <button mat-icon-button matTooltip="Edytuj" (click)="editRow(row)">
+              <mat-icon>edit</mat-icon>        
+            </button>
+            <button mat-icon-button matTooltip="Usuń" (click)="deleteRow(row)">
+              <mat-icon color="warn">delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  
+    <mat-paginator [length]="resultsLength" [pageSize]="5" aria-label="Select page of GitHub search results"></mat-paginator>
+  </div>

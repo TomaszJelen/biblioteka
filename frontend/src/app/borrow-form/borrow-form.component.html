@@ -1,0 +1,92 @@
+<p>borrow-form works!</p>
+
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="form">
+  <mat-form-field class="full-width">
+    <mat-label>ID</mat-label>
+    <input matInput formControlName="id" [readonly]=true>
+  </mat-form-field>
+  
+  <div>
+    <mat-form-field class="example-full-width">
+      <mat-label>Czytelnik</mat-label>
+      <input type="text" placeholder="Wybierz z listy" aria-label="Czytelnik" matInput formControlName="czytelnik" [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete"  [displayWith]="getOptionTextCzytelnik" >
+        <mat-option *ngFor="let czytelnik of filteredOptionsCzytelnik | async" [value]="czytelnik">
+          {{czytelnik.imie}} {{czytelnik.nazwisko}}
+        </mat-option>
+      </mat-autocomplete>
+      @if (this.formGroup.get('czytelnik')!.hasError('forbiddenName')) {
+        <mat-error>Wybierz czytelnika <strong>z listy</strong></mat-error>
+      }
+      </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field class="example-full-width">
+      <mat-label>Ksiazka</mat-label>
+      <input type="text" placeholder="Wybierz z listy" aria-label="Ksiazka" matInput formControlName="ksiazka" [matAutocomplete]="auto2">
+      <mat-autocomplete #auto2="matAutocomplete"  [displayWith]="getOptionTextKsiazka" >
+        <mat-option *ngFor="let ksiazka of filteredOptionsKsiazka | async" [value]="ksiazka">
+          {{ksiazka.nazwa}}
+        </mat-option>
+      </mat-autocomplete>
+      @if (this.formGroup.get('ksiazka')!.hasError('forbiddenName')) {
+        <mat-error>Wybierz ksiażkę <strong>z listy</strong></mat-error>
+      }
+      @if (this.formGroup.get('ksiazka')!.hasError('borrowed')) {
+        <mat-error>Książka wypożyczona</mat-error>
+      }
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field class="example-full-width">
+      <mat-label>Data wypożyczenia</mat-label>
+      <input matInput formControlName="fromDate" [matDatepicker]="picker" [readonly]="!edit">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker" [disabled]="!edit"></mat-datepicker-toggle>
+      <mat-datepicker #picker>
+        <mat-datepicker-actions>
+          <button mat-button matDatepickerCancel>Cancel</button>
+          <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+        </mat-datepicker-actions>
+      </mat-datepicker>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field class="example-full-width">
+      <mat-label>Maksymalna data zwrotu</mat-label>
+      <input matInput formControlName="toDate" [matDatepicker]="picker2" [readonly]="!edit">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker2" [disabled]="!edit"></mat-datepicker-toggle>
+      <mat-datepicker #picker2>
+        <mat-datepicker-actions>
+          <button mat-button matDatepickerCancel>Cancel</button>
+          <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+        </mat-datepicker-actions>
+      </mat-datepicker>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field class="example-full-width">
+      <mat-label>Data zwrotu</mat-label>
+      <input matInput formControlName="returnDate" [matDatepicker]="picker3" [readonly]="!edit">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker3" [disabled]="!edit"></mat-datepicker-toggle>
+      <mat-datepicker #picker3>
+        <mat-datepicker-actions>
+          <button mat-button matDatepickerCancel>Cancel</button>
+          <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+        </mat-datepicker-actions>
+      </mat-datepicker>
+    </mat-form-field>
+  </div>
+   
+  
+  <div class="form-element">
+    <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid">Wyślij</button>
+  </div>
+  
+</form>

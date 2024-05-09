@@ -1,0 +1,24 @@
+
+
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="form">
+  <mat-form-field class="full-width">
+    <mat-label>ID</mat-label>
+    <input matInput formControlName="id" [readonly]=true>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Imie</mat-label>
+    <input matInput maxlength="64" formControlName="imie">
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Nazwisko</mat-label>
+    <input matInput maxlength="64" formControlName="nazwisko">
+  </mat-form-field>
+
+  <div class="form-element">
+    <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid">Wyślij</button>
+  </div>
+
+</form>
+  

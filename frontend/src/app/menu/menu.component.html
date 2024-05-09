@@ -1,0 +1,34 @@
+<button mat-icon-button  [matMenuTriggerFor]="menu" class="example-icon" aria-label="Example icon-button with menu icon">
+  <mat-icon>menu</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item [routerLink] = "['/']">Start</button>
+  <button mat-menu-item [matMenuTriggerFor]="lista">Lista</button>
+  <button mat-menu-item *ngIf="isAdmin()" [matMenuTriggerFor]="dodaj" >Dodaj</button>
+  <button mat-menu-item *ngIf="authenticated()" [matMenuTriggerFor]="wypozycz">Wypożyczenia</button>
+  <button mat-menu-item *ngIf="authenticated()" [matMenuTriggerFor]="rezerwacja">Rezerwacje</button>
+</mat-menu>
+
+<mat-menu #lista="matMenu">
+  <button mat-menu-item [routerLink] = "['autortable']">Autorzy</button>
+  <button mat-menu-item [routerLink] = "['ksiazkatable']">Książki</button>
+  <button mat-menu-item *ngIf="authenticated()" [routerLink] = "['czytelniktable']">Czytelnicy</button>
+</mat-menu>
+
+<mat-menu #dodaj="matMenu">
+  <button mat-menu-item [routerLink] = "['autorform']">Dodaj autora</button>  
+  <button mat-menu-item [routerLink] = "['ksiazkaform']">Dodaj książkę</button>
+  <button mat-menu-item [routerLink] = "['czytelnikform']">Dodaj czytelnika</button>
+</mat-menu>
+
+
+
+<mat-menu #wypozycz="matMenu">
+  <button mat-menu-item [routerLink] = "['borrowtable']">Wszystkie wypożyczenia</button>
+  <button mat-menu-item [routerLink] = "['borrowform']">Wypożycz</button>
+</mat-menu>
+
+<mat-menu #rezerwacja="matMenu">
+  <button mat-menu-item >Nowa rezerwacja</button>
+  <button mat-menu-item >Aktualizuj rezerwację</button>
+</mat-menu>

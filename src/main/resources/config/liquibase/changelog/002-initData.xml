@@ -1,0 +1,199 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="
+                   http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                   http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="jenol (generated)" id="202403221712">
+
+    </changeSet>
+    <changeSet author="jenol (generated)" id="1711125624195-20">
+        <insert tableName="AUTOR">
+            <column name="ID" valueNumeric="9"/>
+            <column name="IMIE" value="Jan"/>
+            <column name="NAZWISKO" value="Długosz"/>
+        </insert>
+        <insert tableName="AUTOR">
+            <column name="ID" valueNumeric="10"/>
+            <column name="IMIE" value="Bolesław"/>
+            <column name="NAZWISKO" value="Prus"/>
+        </insert>
+        <insert tableName="AUTOR">
+            <column name="ID" valueNumeric="8"/>
+            <column name="IMIE" value="Adam"/>
+            <column name="NAZWISKO" value="Bahdaj"/>
+        </insert>
+        <insert tableName="AUTOR">
+            <column name="ID" valueNumeric="12"/>
+            <column name="IMIE" value="Wincenty"/>
+            <column name="NAZWISKO" value="Kadłubek"/>
+        </insert>
+        <insert tableName="AUTOR">
+            <column name="ID" valueNumeric="13"/>
+            <column name="IMIE" value="Dante"/>
+            <column name="NAZWISKO" value="Alighieri"/>
+        </insert>
+        <insert tableName="AUTOR">
+            <column name="ID" valueNumeric="1"/>
+            <column name="IMIE" value="Adam"/>
+            <column name="NAZWISKO" value="Mickiewicz"/>
+        </insert>
+        <insert tableName="AUTOR">
+            <column name="ID" valueNumeric="2"/>
+            <column name="IMIE" value="Juliusz"/>
+            <column name="NAZWISKO" value="Słowacki"/>
+        </insert>
+        <insert tableName="AUTOR">
+            <column name="ID" valueNumeric="4"/>
+            <column name="IMIE" value="Henryk"/>
+            <column name="NAZWISKO" value="Sienkiewicz"/>
+        </insert>
+        <insert tableName="AUTOR">
+            <column name="ID" valueNumeric="5"/>
+            <column name="IMIE" value="Jan"/>
+            <column name="NAZWISKO" value="Kochanowski"/>
+        </insert>
+        <insert tableName="AUTOR">
+            <column name="ID" valueNumeric="6"/>
+            <column name="IMIE" value="Mikołaj"/>
+            <column name="NAZWISKO" value="Rej"/>
+        </insert>
+        <insert tableName="AUTOR">
+            <column name="ID" valueNumeric="7"/>
+            <column name="IMIE" value="Gal"/>
+            <column name="NAZWISKO" value="Anonim"/>
+        </insert>
+        <insert tableName="AUTOR">
+            <column name="ID" valueNumeric="11"/>
+            <column name="IMIE" value="Robert"/>
+            <column name="NAZWISKO" value="Ladla"/>
+        </insert>
+    </changeSet>
+    <changeSet author="jenol (generated)" id="1711125624195-22">
+        <insert tableName="CZYTELNIK">
+            <column name="ID" valueNumeric="1"/>
+            <column name="IMIE" value="Piotr"/>
+            <column name="NAZWISKO" value="Kowalewski"/>
+        </insert>
+        <insert tableName="CZYTELNIK">
+            <column name="ID" valueNumeric="2"/>
+            <column name="IMIE" value="Ewa"/>
+            <column name="NAZWISKO" value="Guździec"/>
+        </insert>
+        <insert tableName="CZYTELNIK">
+            <column name="ID" valueNumeric="4"/>
+            <column name="IMIE" value="Władysław"/>
+            <column name="NAZWISKO" value="Kolba"/>
+        </insert>
+        <insert tableName="CZYTELNIK">
+            <column name="ID" valueNumeric="5"/>
+            <column name="IMIE" value="Tymoteusz"/>
+            <column name="NAZWISKO" value="Klucha"/>
+        </insert>
+        <insert tableName="CZYTELNIK">
+            <column name="ID" valueNumeric="6"/>
+            <column name="IMIE" value="Adam"/>
+            <column name="NAZWISKO" value="Filipowicz"/>
+        </insert>
+    </changeSet>
+    <changeSet author="jenol (generated)" id="1711125624195-24">
+        <insert tableName="KSIAZKA">
+            <column name="ID" valueNumeric="4"/>
+            <column name="TYTUL" value="Lalka"/>
+        </insert>
+        <insert tableName="KSIAZKA">
+            <column name="ID" valueNumeric="2"/>
+            <column name="TYTUL" value="Atlas"/>
+        </insert>
+        <insert tableName="KSIAZKA">
+            <column name="ID" valueNumeric="3"/>
+            <column name="TYTUL" value="Słownik"/>
+        </insert>
+        <insert tableName="KSIAZKA">
+            <column name="ID" valueNumeric="5"/>
+            <column name="TYTUL" value="Dziady"/>
+        </insert>
+        <insert tableName="KSIAZKA">
+            <column name="ID" valueNumeric="6"/>
+            <column name="TYTUL" value="Boska komedia"/>
+        </insert>
+        <insert tableName="KSIAZKA">
+            <column name="ID" valueNumeric="1"/>
+            <column name="TYTUL" value="Kronika"/>
+        </insert>
+    </changeSet>
+    <changeSet author="jenol (generated)" id="1711125624195-23">
+        <insert tableName="DZIELA_AUTOROW">
+            <column name="ID" valueNumeric="1"/>
+            <column name="AUTORZY_ID" valueNumeric="7"/>
+        </insert>
+        <insert tableName="DZIELA_AUTOROW">
+            <column name="ID" valueNumeric="1"/>
+            <column name="AUTORZY_ID" valueNumeric="9"/>
+        </insert>
+        <insert tableName="DZIELA_AUTOROW">
+            <column name="ID" valueNumeric="1"/>
+            <column name="AUTORZY_ID" valueNumeric="12"/>
+        </insert>
+        <insert tableName="DZIELA_AUTOROW">
+            <column name="ID" valueNumeric="4"/>
+            <column name="AUTORZY_ID" valueNumeric="10"/>
+        </insert>
+        <insert tableName="DZIELA_AUTOROW">
+            <column name="ID" valueNumeric="5"/>
+            <column name="AUTORZY_ID" valueNumeric="1"/>
+        </insert>
+        <insert tableName="DZIELA_AUTOROW">
+            <column name="ID" valueNumeric="6"/>
+            <column name="AUTORZY_ID" valueNumeric="13"/>
+        </insert>
+    </changeSet>
+    <changeSet author="jenol (generated)" id="1711125624195-31">
+        <insert tableName="WYPOZYCZENIE">
+            <column name="ID" valueNumeric="9"/>
+            <column name="DATA_OD" valueDate="2024-03-20T16:45:27"/>
+            <column name="DATA_ODDANIA" valueDate="2024-03-20T18:45:31"/>
+            <column name="DATA_DO" valueDate="2024-03-23"/>
+            <column name="CZYTELNIK_ID" valueNumeric="4"/>
+            <column name="KSIAZKA_ID" valueNumeric="6"/>
+        </insert>
+        <insert tableName="WYPOZYCZENIE">
+            <column name="ID" valueNumeric="7"/>
+            <column name="DATA_OD" valueDate="2024-03-18T17:51:01.442"/>
+            <column name="DATA_ODDANIA" valueDate="2024-03-22T10:27:51.839"/>
+            <column name="DATA_DO" valueDate="2024-03-27"/>
+            <column name="CZYTELNIK_ID" valueNumeric="4"/>
+            <column name="KSIAZKA_ID" valueNumeric="2"/>
+        </insert>
+        <insert tableName="WYPOZYCZENIE">
+            <column name="ID" valueNumeric="1"/>
+            <column name="DATA_OD" valueDate="2023-03-17T00:00:00"/>
+            <column name="DATA_ODDANIA" valueDate="2024-03-21T19:20:10.051"/>
+            <column name="DATA_DO" valueDate="2024-03-20"/>
+            <column name="CZYTELNIK_ID" valueNumeric="1"/>
+            <column name="KSIAZKA_ID" valueNumeric="1"/>
+        </insert>
+        <insert tableName="WYPOZYCZENIE">
+            <column name="ID" valueNumeric="8"/>
+            <column name="DATA_OD" valueDate="2024-03-20T13:56:29.006"/>
+            <column name="DATA_ODDANIA" valueDate="2024-03-21T19:19:54.092"/>
+            <column name="DATA_DO" valueDate="2024-03-23"/>
+            <column name="CZYTELNIK_ID" valueNumeric="1"/>
+            <column name="KSIAZKA_ID" valueNumeric="4"/>
+        </insert>
+        <insert tableName="WYPOZYCZENIE">
+            <column name="ID" valueNumeric="5"/>
+            <column name="DATA_OD" valueDate="2024-03-20T00:00:00"/>
+            <column name="DATA_ODDANIA" valueDate="2024-03-22T10:27:44.806"/>
+            <column name="DATA_DO" valueDate="2024-03-23"/>
+            <column name="CZYTELNIK_ID" valueNumeric="6"/>
+            <column name="KSIAZKA_ID" valueNumeric="2"/>
+        </insert>
+    </changeSet>
+<!--    <changeSet  author="liquibase-docs"  id="alterSequence-example">-->
+<!--        <alterSequence minValue="14" sequenceName="AUTOR_SEQ"/>-->
+<!--        <alterSequence minValue="7" sequenceName="CZYTELNIK_SEQ"/>-->
+<!--        <alterSequence minValue="7" sequenceName="KSIAZKA_SEQ"/>-->
+<!--        <alterSequence minValue="10" sequenceName="WYPOZYCZENIE_SEQ"/>-->
+<!--    </changeSet>-->
+</databaseChangeLog>

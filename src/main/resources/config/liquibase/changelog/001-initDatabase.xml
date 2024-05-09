@@ -1,0 +1,80 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="
+                   http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                   http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="jenol (generated)" id="1711046875738-1">
+        <createSequence maxValue="999999999" sequenceName="AUTOR_SEQ" startValue="100"/>
+    </changeSet>
+    <changeSet author="jenol (generated)" id="1711046875738-2">
+        <createSequence maxValue="999999999" sequenceName="CZYTELNIK_SEQ" startValue="100"/>
+    </changeSet>
+    <changeSet author="jenol (generated)" id="1711046875738-3">
+        <createSequence maxValue="999999999" sequenceName="KSIAZKA_SEQ" startValue="100"/>
+    </changeSet>
+    <changeSet author="jenol (generated)" id="1711046875738-4">
+        <createSequence maxValue="999999999" sequenceName="WYPOZYCZENIE_SEQ" startValue="100"/>
+    </changeSet>
+    <changeSet author="jenol (generated)" id="1711046875738-5">
+        <createTable tableName="AUTOR" tablespace="USERS">
+            <column name="ID" type="NUMBER(10, 0)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="SYS_C0011958"/>
+            </column>
+            <column name="IMIE" type="VARCHAR2(64)"/>
+            <column name="NAZWISKO" type="VARCHAR2(64)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="jenol (generated)" id="1711046875738-6">
+        <createTable tableName="CZYTELNIK" tablespace="USERS">
+            <column name="ID" type="NUMBER(10, 0)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="SYS_C0011960"/>
+            </column>
+            <column name="IMIE" type="VARCHAR2(64)"/>
+            <column name="NAZWISKO" type="VARCHAR2(64)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="jenol (generated)" id="1711046875738-7">
+        <createTable tableName="DZIELA_AUTOROW" tablespace="USERS">
+            <column name="ID" type="NUMBER(10, 0)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="AUTORZY_ID" type="NUMBER(10, 0)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="jenol (generated)" id="1711046875738-8">
+        <createTable tableName="KSIAZKA" tablespace="USERS">
+            <column name="ID" type="NUMBER(10, 0)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="SYS_C0011964"/>
+            </column>
+            <column name="TYTUL" type="VARCHAR2(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="jenol (generated)" id="1711046875738-20">
+        <createTable tableName="WYPOZYCZENIE" tablespace="USERS">
+            <column name="ID" type="NUMBER(10, 0)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="SYS_C0011966"/>
+            </column>
+            <column name="DATA_OD" type="TIMESTAMP(6)"/>
+            <column name="DATA_ODDANIA" type="TIMESTAMP(6)"/>
+            <column name="DATA_DO" type="date"/>
+            <column name="CZYTELNIK_ID" type="NUMBER(10, 0)"/>
+            <column name="KSIAZKA_ID" type="NUMBER(10, 0)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="jenol (generated)" id="1711046875738-41">
+        <addForeignKeyConstraint baseColumnNames="KSIAZKA_ID" baseTableName="WYPOZYCZENIE" constraintName="FK2QAH5X9DBLRUGF5R3EV0VED7J" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="KSIAZKA" validate="true"/>
+    </changeSet>
+    <changeSet author="jenol (generated)" id="1711046875738-42">
+        <addForeignKeyConstraint baseColumnNames="CZYTELNIK_ID" baseTableName="WYPOZYCZENIE" constraintName="FKBHV08ATK4BQXSOY1TIVQ5GRF2" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="CZYTELNIK" validate="true"/>
+    </changeSet>
+    <changeSet author="jenol (generated)" id="1711046875738-43">
+        <addForeignKeyConstraint baseColumnNames="ID" baseTableName="DZIELA_AUTOROW" constraintName="FKMICO71MP2205LCDR7D3GDY1W4" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="KSIAZKA" validate="true"/>
+    </changeSet>
+    <changeSet author="jenol (generated)" id="1711046875738-44">
+        <addForeignKeyConstraint baseColumnNames="AUTORZY_ID" baseTableName="DZIELA_AUTOROW" constraintName="FKMXMLYW5WP82WBPQPLU10N7K5P" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="AUTOR" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,19 @@
+.example-item {
+    height: 18px;
+  }
+
+.example-viewport {
+  height: 54px;
+  width: 200px;
+  border: 1px solid black;
+}
+
+.ramka {
+  min-width: 180px;
+  border: 1px solid black; 
+  
+}
+
+.pozycja-w-ramce {
+  line-height: 24px;
+}

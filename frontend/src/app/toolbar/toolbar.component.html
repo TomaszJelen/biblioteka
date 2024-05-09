@@ -1,0 +1,13 @@
+<mat-toolbar>
+    <app-menu></app-menu>
+    <span>My Library</span>
+    <span class="example-spacer"></span>
+    <span  *ngIf="authenticated()">{{user()}}</span>
+    <button mat-icon-button [routerLink] = "['login']" class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button  (click)="logout()" class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>share</mat-icon>
+    </button>
+  </mat-toolbar>
+  

@@ -1,0 +1,8 @@
+<p>Witaj!</p>
+
+<div *ngIf="authenticated()">
+    <p>Użytkownik zalogowany</p>
+</div>
+<div *ngIf="!authenticated()">
+	<p>Użytkownik niezalogowany</p>
+</div>
